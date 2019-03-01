@@ -14,8 +14,6 @@ def main():
     """
     logger = logging.getLogger(__name__)
 
-    dl_url = config["SOURCE_DATA"]
-    dl_tgt = str(project_dir.absolute()) + '/' + config["RAW_DATA_PATH"]
     # find .env automagically by walking up directories until it's found, then
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
@@ -23,7 +21,7 @@ def main():
     dl_links = config["source_dl"]
     for dl_link in dl_links:
         dl_url = dl_link["url"]
-        dl_tgt = str(project_dir.absolute()) + '/' + dl_link["filename"]
+        dl_tgt = str(project_dir.absolute()) + '/' + config['raw_data_path'] + '/' + dl_link["filename"]
         logger.info('downloading raw data from ' + dl_url)
         logger.info('downloading to ' + dl_tgt)
         try:
