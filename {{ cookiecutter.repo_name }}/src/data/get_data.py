@@ -20,13 +20,17 @@ def main():
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
-    logger.info('downloading raw data from ' + dl_url)
-    logger.info('downloading to ' + dl_tgt)
-    try:
-        wget.download(url=dl_url,out=dl_tgt)
-    except Exception as e:
-        logger.error('an exception occured while attempting to download raw data: ' + str(type(e)))
-        sys.exit(2)
+    dl_links = config["source_dl"]
+    for dl_link in dl_links:
+        dl_url = dl_link["url"]
+        dl_tgt = str(project_dir.absolute()) + '/' + dl_link["filename"]
+        logger.info('downloading raw data from ' + dl_url)
+        logger.info('downloading to ' + dl_tgt)
+        try:
+            wget.download(url=dl_url,out=dl_tgt)
+        except Exception as e:
+            logger.error('an exception occured while attempting to download raw data: ' + str(type(e)))
+            sys.exit(2)
 
 
 
