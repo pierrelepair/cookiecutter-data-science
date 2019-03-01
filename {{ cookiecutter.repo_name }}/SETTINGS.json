@@ -1,1 +1,16 @@
-{"SOURCE_DATA":"{{ cookiecutter.src_data }}","RAW_DATA_PATH": "data/raw/iris.csv", "TRAIN_DATA_CLEAN_PATH": "./data/processed/train.csv", "TEST_DATA_CLEAN_PATH": "./data/processed/test.csv", "MODEL_CHECKPOINT_DIR": "./models/", "LOGS_DIR": "./logs/", "SUBMISSION_DIR": "./submissions/"}
+{
+	"source_dl" : [
+		{
+			"url" : "{{ cookiecutter.src_data }}",
+			"filename" : "iris.csv"
+		}
+	],
+	"source_quandl " : "",
+	"raw_data_path" : "./data/raw", 
+	"stagging_data_path" : "./data/interim", 	
+	"clean_data_path": "./data/processed", 
+	"TEST_DATA_CLEAN_PATH": "./data/processed/test.csv", 
+	"MODEL_CHECKPOINT_DIR": "./models/", 
+	"LOGS_DIR": "./logs/", 
+	"SUBMISSION_DIR": "./submissions/"
+}
