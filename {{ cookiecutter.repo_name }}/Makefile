@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3
+.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 get_data
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -80,6 +80,8 @@ test_environment:
 # PROJECT RULES                                                                 #
 #################################################################################
 
+get_data:
+	$(PYTHON_INTERPRETER) ./src/data/get_data.py
 
 
 #################################################################################
