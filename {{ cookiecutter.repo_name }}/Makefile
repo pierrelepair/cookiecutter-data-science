@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 get_data
+.PHONY: clean data lint requirements sync_data_to_s3 sync_data_from_s3 get_data explore prepare_data train_model
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -82,6 +82,15 @@ test_environment:
 
 get_data:
 	$(PYTHON_INTERPRETER) ./src/data/get_data.py
+
+explore: get_data
+	jupyter notebook --NotebookApp.notebook_dir='./notebooks'
+
+prepare_data:
+	$(PYTHON_INTERPRETER) ./src/data/make_dataset.py
+
+train_model:
+	$(PYTHON_INTERPRETER) ./src/models/train_model.py	
 
 
 #################################################################################
